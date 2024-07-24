@@ -6,7 +6,7 @@
 # Example: current_date=$(date)
 # echo "The current date and time is: $current_date"
 
-current_date = $(date)
+current_date=$(date)
 
 echo "current date and time is $current_date "
 
