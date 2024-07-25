@@ -28,3 +28,5 @@ echo "Second fruit from Fruits array: ${FRUITS[1]}"
 
 echo "Third fruit from Fruits array: ${FRUITS[2]}"
 
+echo "All fruits in Fruits array are: ${FRUITS[@]}"
+
