@@ -7,5 +7,5 @@ then
     echo "Can't install services without sudo privileges"
 fi
 # trying to install mysql client...
-apt-get install mysql -y
+dnf install mysql -y
 
