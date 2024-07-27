@@ -20,6 +20,8 @@ dnf install mysql -y
 if [ $? -ne 0 ]
 then    
     echo "MySql installation failed...."
-    exit
+    exit 1
+else
+    echo "MySql is already installed..."
 fi
 
