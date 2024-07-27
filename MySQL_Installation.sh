@@ -15,3 +15,11 @@ fi
 # trying to install mysql client...
 dnf install mysql -y
 
+# Checking is mysql installation is successfull
+
+if [ $? -ne 0 ]
+then    
+    echo "MySql installation failed...."
+    exit
+fi
+
