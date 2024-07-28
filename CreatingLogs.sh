@@ -64,7 +64,7 @@ install_htop() {
         echo "htop is already installed on your machine"
     fi
 
-    prompt_keep_or_uninstall
+prompt_keep_or_uninstall
 
 }
 
