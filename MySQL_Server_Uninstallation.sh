@@ -7,7 +7,7 @@ check_mysql_installation() {
     MySql_Directory=$(which mysql)
     MySQLinstallationResponse=$?
 
-    if [ MySQLinstallationResponse -eq 0 ]
+    if [ $MySQLinstallationResponse -eq 0 ]
     then
         echo "MySQL server is installed on your machine at: $MySql_Directory "
     else
