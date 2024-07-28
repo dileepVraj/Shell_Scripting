@@ -38,6 +38,8 @@ log() {
 }
 
 install_htop() {
+    # Printing file name.
+    echo $0
     log "verifying if htop is installed or not"
 
     # Check if htop is installed using 'which' command.
@@ -60,6 +62,38 @@ install_htop() {
     else
         log "htop is already installed on your machine"
         echo "htop is already installed on your machine"
+    fi
+
+    prompt_keep_or_uninstall
+
+}
+
+prompt_keep_or_uninstall() {
+    echo " Do you want to keep 'htop' or 'uninstall' it? Enter 'k' to keep or 'u' to uninstall."
+    read RESPONSE
+    if [ "RESPONSE" == "u" ]; then
+    log "user chose to un-install htop"
+    uninstall_htop
+    else
+        log "user decided to keep htop"
+        echo "htop will be kept on your machine"
+    fi
+}
+
+uninstall_htop() {
+    log "Uninstalling htop"
+    echo "Uninstalling htop"
+
+    sudo apt-get remove --purge htop -y
+    sudo apt-get autoremove -y
+    sudo apt-get autoclean
+
+    if ! which htop &> /dev/null; then
+    log "htop un-installted successfully"
+    echo "htop un-installed successfully"
+    else
+    log "htop un-installation failed"
+    echo "htop un-installation failed"
     fi
 
 }
