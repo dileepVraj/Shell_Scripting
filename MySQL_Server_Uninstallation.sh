@@ -5,7 +5,7 @@
 check_mysql_installation(){
     # executing 'whcich mysql' to get to know do mysql is installed in container.
     MySql_Directory=$(which mysql)
-    MySQLinstallationResponse=$($?)
+    MySQLinstallationResponse=$(echo $?)
 
     if [ MySQLinstallationResponse == 0 ]
     then
@@ -17,7 +17,7 @@ un_install_mysql(){
     # Confirming un-installation of mysql.
     echo " Are you sure want to remove 'mysql', if yes enter 'y' if no enter 'n'. "
     read RESPONSE
-    if [$RESPONSE == "y" ]
+    if [ $RESPONSE == "y" ]
     then
         echo " mysql un-installation started "
         # The --purge option removes the package along with its configuration fils.
