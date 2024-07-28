@@ -13,6 +13,7 @@ check_mysql_installation() {
     else
         echo "MySql server is not installed on you machine."
     fi
+
 }
 
 un_install_mysql() {
@@ -36,6 +37,8 @@ un_install_mysql() {
 
 
 }
+
+
 
 check_mysql_installation
 un_install_mysql
