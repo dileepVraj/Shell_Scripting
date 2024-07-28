@@ -72,8 +72,8 @@ prompt_keep_or_uninstall() {
     echo " Do you want to keep 'htop' or 'uninstall' it? Enter 'k' to keep or 'u' to uninstall."
     read RESPONSE
     if [ "RESPONSE" == "u" ]; then
-    log "user chose to un-install htop"
-    uninstall_htop
+        log "user chose to un-install htop"
+        uninstall_htop
     else
         log "user decided to keep htop"
         echo "htop will be kept on your machine"
