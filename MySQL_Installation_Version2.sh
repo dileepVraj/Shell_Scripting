@@ -5,5 +5,5 @@ ID=$(id -u)
 Username=$(whoami)
 if [ $ID -ne 0 ]
 then
-    "echo looks you are not a root user the actual user name is : $Username"
+    echo "looks you are not a root user. The actual user name is: $Username"
 fi
