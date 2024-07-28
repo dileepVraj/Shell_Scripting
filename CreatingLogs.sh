@@ -34,26 +34,33 @@
 LOG_FILE="/var/log/htop_install.log"
 
 log() {
-    echo "$(date '+%Y-%m-%d %H:%M%S') - $1" | tee -a $LOG_FILE
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" | tee -a $LOG_FILE
 }
 
 install_htop() {
-    log "verifying do htop is installed or not"
+    log "verifying if htop is installed or not"
 
-    if [ $? -nq 0 ]
-    then 
-        log "htop isn't installed in your machine"
-        echo " starting htop installation "
-        log " starting htop installation "
-        sudo apt-get install htop -y
-        log " htop installed successfully "
+    # Check if htop is installed using 'which' command.
+
+    if ! which htop &> /dev/null; then
+    log "htop isn't installed on your machine"
+    echo "Starting htop installation"
+    log "Starting htop installation"
+    sudo apt-get install htop -y
+
+        # Check if installation is successfull
+        if [ $? -eq 0 ]; then
+        log "htop installed successfully"
         echo "htop installed successfully"
-    elif [ $? -eq 0 ]
-    then
-        log "htop is already installed in your machine"
-        echo "htop is already installed in your machine"
+
+        else
+            log "htop installation failed"
+            echo "htop installation failed"
+        fi
+    else
+        log "htop is already installed on your machine"
+        echo "htop is already installed on your machine"
     fi
-    
 
 }
 
