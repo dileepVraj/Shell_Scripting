@@ -2,22 +2,24 @@
 
 
 
-check_mysql_installation(){
+check_mysql_installation() {
     # executing 'whcich mysql' to get to know do mysql is installed in container.
     MySql_Directory=$(which mysql)
-    MySQLinstallationResponse=$(echo $?)
+    MySQLinstallationResponse=$?
 
-    if [ MySQLinstallationResponse == 0 ]
+    if [ MySQLinstallationResponse -eq 0 ]
     then
         echo "MySQL server is installed on your machine at: $MySql_Directory "
+    else
+        echo "MySql server is not installed on you machine."
     fi
 }
 
-un_install_mysql(){
+un_install_mysql() {
     # Confirming un-installation of mysql.
-    echo " Are you sure want to remove 'mysql', if yes enter 'y' if no enter 'n'. "
+    echo " Are you sure want to remove 'mysql', if yes enter 'y' if no, enter 'n'. "
     read RESPONSE
-    if [ $RESPONSE == "y" ]
+    if [ "$RESPONSE" == "y" ]
     then
         echo " mysql un-installation started "
         # The --purge option removes the package along with its configuration fils.
@@ -28,6 +30,8 @@ un_install_mysql(){
         sudo apt-get autoclean
         # To remove all the MySQL data directories and configuration files you can delete the MySql directory.
         sudo rm -rf /etc/mysql /var/lib/mysql
+    else
+        echo "mysql un-installation aborted."
     fi
 
 
