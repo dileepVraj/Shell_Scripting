@@ -19,7 +19,7 @@ elif [ $ID -eq 0 ];
 then
     echo "installing mysql ......"
     # trying to install mysql client...
-    dnf install mysql -y
+    apt-get install mysql -y
 fi
 
 
