@@ -6,16 +6,18 @@ ID=$(id -u)
 # if the user is different from root user then the value will be anything from 0.
 
 
-if [ $ID -ne 0 ]
+if [ $ID -ne 0 ];
+then
 # This if condition checks ID is not equal to value 0(if not root user).
 # if true then it executes the code under then block.
-then
+
 # If ID is not equal to 0 then prints the below message to the console.
     echo "Can't install services without sudo privileges"
 # This exit 1 is very helpful to stop the program execution fail at any certain point.
     exit 1
-elif [ $ID -eq 0 ]
-
+elif [ $ID -eq 0 ];
+then
+    echo "installing mysql ......"
     # trying to install mysql client...
     dnf install mysql -y
 fi
