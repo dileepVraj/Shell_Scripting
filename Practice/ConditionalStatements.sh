@@ -10,3 +10,4 @@ if [$VALUE -gt 50]; then
 echo "Yes $VALUE is greater than 50"
 else
     echo "No $VALUE is not greater than 50"
+fi
