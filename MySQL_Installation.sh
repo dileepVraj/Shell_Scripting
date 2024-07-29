@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 ID=$(id -u)
 # Executing 'id -u' command and storing value in variable ID.
 # 'id -u' command returns user id in numbers, where if the user is root user the value will be 0,
@@ -19,7 +21,7 @@ elif [ $ID -eq 0 ];
 then
     echo "installing mysql ......"
     # trying to install mysql client...
-    apt-get install mysql -y
+    apt-get install mysql-server -y
 fi
 
 
