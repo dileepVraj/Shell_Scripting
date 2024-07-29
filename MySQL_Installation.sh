@@ -21,7 +21,7 @@ elif [ $ID -eq 0 ]
 fi
 
 
-# Checking is mysql installation is successfull
+# Checking is mysql installation is successfull.
 
 if [ $? -ne 0 ]
 then    
