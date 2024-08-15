@@ -30,7 +30,7 @@ createFiles() {
 
     else
         echo "Directory "$directoryToCreateFiles" exists."
-        return 0
+        
     fi
 
     # Use IFS to split filesNameString into an array.
