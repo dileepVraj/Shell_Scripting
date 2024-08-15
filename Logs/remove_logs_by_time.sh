@@ -59,10 +59,11 @@ createFiles() {
     
 }
 
-cleanupLogs() {
+# This function takes 3 arguments 1. <path to directory>, 2. time(in days) 3. name(pattern)
+cleanUpLogs() {
     # This function will delete files or directories in a specified directory based on time and name(pattern).
 
-    # This function takes 3 arguments 1. <path to directory>, 2. time(in days) 3.name(pattern)
+    
 
     if [ -d $1 ]; then
     echo "Directory $1 is exists"
@@ -163,3 +164,4 @@ cleanupLogs() {
 }
 
 createFiles "/home/Log_files" "file_one.txt file_two.log" "20240630"
+cleanUpLogs "/home/Log_files" "+10" "*.log"
