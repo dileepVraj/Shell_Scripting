@@ -65,14 +65,14 @@ cleanUpLogs() {
 
     
 
-    if [ -d $1 ]; then
+    if [ -d "$1" ]; then
     echo "Directory $1 is exists"
     else
         echo " Sorry 😒 directory $1 is not exists."
     fi
 
     # Command substitution for finding files.
-    files=$(find $1 -type f -mtime "$2" -name "*.$3")
+    files=$(find "$1" -type f -mtime "$2" -name "$3")
     # Explanation of above 'Line of Code'.
 
 
