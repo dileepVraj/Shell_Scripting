@@ -18,9 +18,9 @@ createFiles() {
 
     # file_one.txt file_two.log 
     if [ ! -d "$directoryToCreateFiles" ]; then
-        echo "Directory "$1" doesn't exists."
+        echo "Directory "$directoryToCreateFiles" doesn't exists."
         echo "creating directory"
-        mkdir -p "$1"
+        mkdir -p "$directoryToCreateFiles"
         if [ $? -eq 0 ]; then
         echo "directory successfully created"
         else
@@ -29,7 +29,7 @@ createFiles() {
         fi
 
     else
-        echo "Directory "$1" exists."
+        echo "Directory "$directoryToCreateFiles" exists."
         return 0
     fi
 
