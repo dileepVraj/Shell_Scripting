@@ -9,7 +9,55 @@
 # Check do files available with user specified time(the date on which files are created) and with 
 #.. specified extension.
 
-# function.
+
+# This function takes 3 arguments(1. directory<path> 2. FileNamesWithSpaceCharacterDelimeter 3.date in YYYYMMDD)
+createFiles() {
+    local directoryToCreateFiles=$1
+    local filesNameString=$2
+    local date=$3
+
+    # file_one.txt file_two.log 
+    if [ ! -d "$directoryToCreateFiles" ]; then
+        echo "Directory "$1" doesn't exists."
+        echo "creating directory"
+        mkdir -p "$1"
+        if [ $? -eq 0 ]; then
+        echo "directory successfully created"
+        else
+        echo " directory creation failed"
+        return 1
+        fi
+
+    else
+        echo "Directory "$1" exists."
+        return 0
+    fi
+
+    # Use IFS to split filesNameString into an array.
+    IFS= ' ' read -r -a filesNameArray <<< "$filesNameString"
+
+    # Loop through array and create files.
+    for filename in "${filesNameArray[@]}"; do
+        touch -d $date "$directoryToCreateFiles/$filename"
+        if [ -f $filename ]; then
+            echo " file $filename is created in $directoryToCreateFiles"
+        else
+            echo "Failed to create the file $filename"
+        fi
+    done
+
+    echo "files created in $directoryToCreateFiles are:"
+    ls $directoryToCreateFiles
+
+
+
+
+
+   
+
+
+    
+}
 
 cleanupLogs() {
     # This function will delete files or directories in a specified directory based on time and name(pattern).
@@ -113,3 +161,5 @@ cleanupLogs() {
 
 
 }
+
+createFiles "/home/Log_files" "file_one.txt file_two.log" "20240630"
