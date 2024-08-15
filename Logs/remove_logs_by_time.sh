@@ -34,12 +34,12 @@ createFiles() {
     fi
 
     # Use IFS to split filesNameString into an array.
-    IFS= ' ' read -r -a filesNameArray <<< "$filesNameString"
+    IFS=' ' read -r -a filesNameArray <<< "$filesNameString"
 
     # Loop through array and create files.
     for filename in "${filesNameArray[@]}"; do
-        touch -d $date "$directoryToCreateFiles/$filename"
-        if [ -f $filename ]; then
+        touch -d "$date" "$directoryToCreateFiles/$filename"
+        if [ -f "$directoryToCreateFiles/$filename" ]; then
             echo " file $filename is created in $directoryToCreateFiles"
         else
             echo "Failed to create the file $filename"
@@ -47,7 +47,7 @@ createFiles() {
     done
 
     echo "files created in $directoryToCreateFiles are:"
-    ls $directoryToCreateFiles
+    ls "$directoryToCreateFiles"
 
 
 
