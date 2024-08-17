@@ -16,7 +16,10 @@ fileSystemType=""
 
 while IFS= read -r line
 do
-    echo $line | awk '{ print $1F }'
+    if [ echo $line | awk '{ print $1F }' == "/dev/sdd"]; then
+        echo $line
+    fi
+    
 done <<< $DISK_USAGE
 
 
