@@ -11,15 +11,15 @@
     # 5. print warning message if usage is equal or greater than 1 if not print just usage.
 
 DISK_USAGE=$(df -hT)
-threshold=""
-fileSystemType=""
 
 while IFS= read -r line
 do
     if [ "$(echo $line | awk '{ print $1F }')" == "/dev/sdd" ]; then
         echo $line
         filesys=$(echo "$line" | awk '{ print $1 }')
-        echo "file system is $filesys" 
+        echo "file system is $filesys"
+        threshold=$(echo "$line" | awk '{ print $6 }')
+        echo "disk_usage is  $threshold"
     fi
     
 done <<< $DISK_USAGE
