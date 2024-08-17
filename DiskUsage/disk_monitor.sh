@@ -10,12 +10,10 @@
     # 4. verify the threashold or usage.
     # 5. print warning message if usage is equal or greater than 1 if not print just usage.
 
-DISK_USAGE=$(df -hT)
+DISK_USAGE=$(df -hT | grep -vE 'tmp|File')
 
 while IFS= read -r line
 do
-    if [ "$(echo $line | awk '{ print $1F }')" != 'tmp|File' ]; then
-        echo $line
         filesys=$(echo "$line" | awk '{ print $1 }')
         echo "file system is $filesys"
         threshold=$(echo "$line" | awk '{ print $6 }' | cut -d % -f 1)
