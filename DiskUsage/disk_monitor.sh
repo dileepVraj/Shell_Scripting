@@ -11,20 +11,29 @@
     # 5. print warning message if usage is equal or greater than 1 if not print just usage.
 
 DISK_USAGE=$(df -hT | grep -vE 'tmp|File')
+threshold=1
+message=""
 
+check_disk_usage_threshold() {
 while IFS= read -r line
-do
+    do
         filesys=$(echo "$line" | awk '{ print $1 }')
         echo "file system is $filesys"
-        threshold=$(echo "$line" | awk '{ print $6 }' | cut -d % -f 1)
-        echo "disk_usage is  $threshold"
-            if [ "$threshold" -ge 1 ]; then
-                echo "***Alert disk usage on $filesys: is reached maximum threshold $threshold"
+        usage=$(echo "$line" | awk '{ print $6 }' | cut -d % -f 1)
+        echo "disk_usage is  $usage"
+            if [ "$usage" -ge $threshold ]; then
+                message+="***Alert disk usage on $filesys: is reached maximum threshold: $usage"
             else
-                echo "Disk usage is $threshold"
+                message+="Disk usage is: $usage"
             fi
+
+            echo $message
+            
     
-done <<< $DISK_USAGE
+    done <<< $DISK_USAGE
+}
+
+check_disk_usage_threshold
 
 
 
