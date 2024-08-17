@@ -6,8 +6,8 @@
 echo "enter a sentence"
 read sentence
 
-echo "Number of fields in user specified sentence are:" 
-echo $sentence | awk '{print NF}'
+echo "Number of fields in user specified sentence are:" $(echo $sentence | awk '{print NF}')
+
 
 echo "Printing them with Output Field Seperator"
 
