@@ -18,8 +18,8 @@ while IFS= read -r line
 do
     if [ "$(echo $line | awk '{ print $1F }')" == "/dev/sdd" ]; then
         echo $line
-        $fileSystemType=$(echo "$line" | awk '{ print $1 }')
-        echo "file system is $fileSystemType" 
+        filesys=$(echo "$line" | awk '{ print $1 }')
+        echo "file system is $filesys" 
     fi
     
 done <<< $DISK_USAGE
