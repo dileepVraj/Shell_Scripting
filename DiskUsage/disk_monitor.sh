@@ -11,7 +11,7 @@
     # 5. print warning message if usage is equal or greater than 1 if not print just usage.
 
 DISK_USAGE=$(df -hT | grep -vE 'tmp|File|overlay')
-threshold=0
+threshold=6
 message=""
 
 check_disk_usage_threshold() {
