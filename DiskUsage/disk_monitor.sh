@@ -26,13 +26,13 @@ while IFS= read -r line
             else
                 echo "Disk usage is under control: $usage"
             fi
-
-
     
     done <<< $DISK_USAGE
 }
 
 check_disk_usage_threshold
+
+
 
 
 
