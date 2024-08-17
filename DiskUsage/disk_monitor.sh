@@ -18,7 +18,7 @@ do
         echo $line
         filesys=$(echo "$line" | awk '{ print $1 }')
         echo "file system is $filesys"
-        threshold=$(echo "$line" | awk '{ print $6 }')
+        threshold=$(echo "$line" | awk '{ print $6 }' | cut -d % -f 1)
         echo "disk_usage is  $threshold"
     fi
     
