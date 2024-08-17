@@ -18,7 +18,7 @@ while IFS= read -r line
 do
     if [ "$(echo $line | awk '{ print $1F }')" == "/dev/sdd" ]; then
         echo $line
-        $file_system=awk '{$1F}' $line
+        $file_system=$(echo $line | awk '{$1F}')
         echo "file system is $file_system" 
     fi
     
