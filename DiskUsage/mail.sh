@@ -9,6 +9,6 @@ disk_usage="$(echo $line | awk '{ print $6 }' | cut -d % -f 1)"
     if [ "$disk_usage" -ge "$threshold" ]; then
     echo $line
     fi
-done <<< $disk_usage
+done <<< $disk_usage_records
 
 
