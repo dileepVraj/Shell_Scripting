@@ -23,9 +23,6 @@ do
             else
                 echo "Disk usage is $threshold"
             fi
-
-
-    fi
     
 done <<< $DISK_USAGE
 
