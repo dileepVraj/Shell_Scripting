@@ -8,7 +8,10 @@ do
 disk_usage="$(echo $line | awk '{ print $6 }' | cut -d % -f 1)"
     if [ "$disk_usage" -ge "$threshold" ]; then
     echo $line
-    echo "Disk usage is: $disk_usage"
+    echo "Subject disk usage alert" > /tmp/email.txt
+    echo "Your disk usage is at $disk_usage%, which exeeds the threshold of $threshold%.">>tmp/email.txt
+    msmtp -a gmail ananthvraj50@gmail.com < /tmp/email.txt
+
     fi
 done <<< $disk_usage_records
 
