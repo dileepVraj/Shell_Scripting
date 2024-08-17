@@ -21,7 +21,7 @@ do
         threshold=$(echo "$line" | awk '{ print $6 }' | cut -d % -f 1)
         echo "disk_usage is  $threshold"
             if [ "$threshold" -ge 1 ]; then
-                echo "***Alert disk usage reached maximum threshold $threshold"
+                echo "***Alert disk usage on $filesys: is reached maximum threshold $threshold"
             else
                 echo "Disk usage is $threshold"
             fi
