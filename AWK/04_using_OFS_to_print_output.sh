@@ -10,7 +10,7 @@ echo "Number of fields in user specified sentence are:" echo $sentence | awk '{p
 
 echo "Printing them with Output Field Seperator"
 
-echo $sentence | awk '{ OFS=":"; print $1F $2F $3F }'
+echo $sentence | awk 'BEGIN { OFS="," }{ print $1F $2F $3F }'
 
 
 
