@@ -14,7 +14,7 @@ DISK_USAGE=$(df -hT)
 
 while IFS= read -r line
 do
-    if [ "$(echo $line | awk '{ print $1F }')" | -vE 'tmp|File' ]; then
+    if [ "$(echo $line | awk '{ print $1F }')" != 'tmp|File' ]; then
         echo $line
         filesys=$(echo "$line" | awk '{ print $1 }')
         echo "file system is $filesys"
