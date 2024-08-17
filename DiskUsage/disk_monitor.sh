@@ -24,7 +24,7 @@ while IFS= read -r line
             if [ "$usage" -ge $threshold ]; then
                 echo "***Alert disk usage on $filesys: is reached maximum threshold: $usage"
             else
-                echo "Disk usage is: $usage"
+                echo "Disk usage is under control: $usage"
             fi
 
 
