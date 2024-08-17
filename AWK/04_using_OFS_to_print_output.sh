@@ -11,7 +11,7 @@ echo $sentence | awk '{print NF}'
 
 echo "Printing them with Output Field Seperator"
 
-echo $sentence | awk 'BEGIN { OFS="," }{ print $1 $2 $3 }'
+echo $sentence | awk 'BEGIN { OFS="," } { print $1 $2 $3 }'
 
 
 
