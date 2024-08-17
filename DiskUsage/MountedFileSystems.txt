@@ -1,0 +1,162 @@
+What are Mounted File systems.
+
+In Linux, mounted file systems are storage volumes or devices that have been made accessible to 
+the operating system and its users by attaching them to a directory in the existing file system 
+hierarchy. Mounting a file system means integrating it into the file system structure so that its 
+contents can be accessed and manipulated through the standard file system operations.
+
+Key concepts:
+------------
+
+1. Mount point:
+--------------
+    A directory in the existing file system where a new file system will be attached.
+    It acts as a entry point to access the mounted file system.
+
+2. File System:
+---------------
+    A method for storing and organizing files on a storage device. 
+    Ex: ext4, NTFS and FAT32
+
+3. Mounting:
+------------
+    The process of attaching file system to a mount point so that it becomes part of overall file 
+    system hierarchy.
+
+4. Unmounting:
+-------------
+The process of detaching a mounted file system from its mount point, making it no longer accessible 
+at that location.
+
+Common commands:
+---------------
+
+View mounted File Systems:
+command: df(disk free) -h(human-readable)
+
+It provides information about the available and used disk space on filesystems.
+
+which makes the output easier to understand by displaying sizes in KB, MB, GB, etc., rather than 
+in the default block size (usually 1K blocks).
+
+--------------------------------------------------------------------------------------------------
+
+Command: mount.
+This command shows all currently mounted file systems and their mount points.
+
+--------------------------------------------------------------------------------------------------
+
+Mount a file system:
+
+Command: /dev/sdX1 /mnt/mydisk
+
+This command mounts the file system on the device /dev/sdX1 to the directory /mnt/mydisk.
+--------------------------------------------------------------------------------------------------
+
+Unmount a File System:
+
+Command: unmount /mnt/mydisk
+This command unmounts the file system mounted at /mnt/mydisk.
+--------------------------------------------------------------------------------------------------
+
+Examples of Mounted File Systems:
+---------------------------------
+
+Local Disk Partitions:
+Mounted under directories like /, /home, /var, etc.
+
+External Storage Devices:
+Such as USB drives, mounted under /media or /mnt.
+
+Network File Systems:
+Such as NFS (Network File System) or SMB (Server Message Block), mounted under directories like /mnt/nfs or /mnt/smb.
+--------------------------------------------------------------------------------------------------------
+
+Typical Mount Points:
+--------------------
+Root File System: /
+Home Directory: /home
+Temporary Storage: /tmp
+External Drives: /media/usb or /mnt/external
+--------------------------------------------------------------------------------------------------------
+
+==========================================================================================================
+
+Story: The Village Library.
+
+Setting:
+You live in a small village where there’s a local library. This library is a great place where 
+people can borrow and return books. Imagine that the library is connected to various storage rooms 
+(file systems) where different categories of books are kept.
+
+Characters:
+
+The Library (Root File System): This is the main building where the library services are provided.
+Storage Rooms (Mount Points): These are different rooms in the library where books are categorized. 
+Each room represents a different file system.
+Books (Files): These are the items you want to access or organize.
+Scenario 1: Adding a New Storage Room (Mounting a File System)
+The Situation:
+The library wants to add a new storage room to keep all the science fiction books. This new room is 
+an external building that needs to be integrated into the existing library system.
+
+What Happens:
+
+    Mount Point Creation:
+    The library decides to use a section of the main building, like a hallway, as an entry point to 
+    the new storage room. They call this hallway "Science Fiction Room."
+
+    Mounting the Room:
+    The new storage room (external file system) is physically connected to the library. 
+    Now, when people enter the hallway marked "Science Fiction Room," they can access the 
+    science fiction books stored in that new room.
+
+    Command: mount /dev/sdX1 /mnt/science_fiction
+
+    Here, /dev/sdX1 represents the new storage room, and /mnt/science_fiction is the hallway 
+    (mount point) where the room is connected.
+
+-------------------------------------
+
+Scenario 2: Accessing the Books
+
+The Situation:
+    A librarian needs to organize the science fiction books.
+
+        What Happens:
+            Access the Books:
+                The librarian goes to the "Science Fiction Room" (the mount point) and starts 
+                working with the books. 
+                They can now see and manage the books that were stored in the new room.
+
+                Commands:
+                cd /mnt/science_fiction
+                ls
+
+                Here, cd changes to the directory of the new room, and ls lists the books (files) 
+                available in that room.
+------------------------------------------
+
+Scenario 3: Removing the Storage Room (Unmounting a File System)
+
+The Situation:
+    The library needs to temporarily close the science fiction room for renovation.
+        What Happens:
+            Unmount the Room:
+                The connection between the hallway and the new storage room is temporarily removed. 
+                The hallway no longer leads to the science fiction room, so the books are not 
+                accessible through that hallway anymore.
+            
+            Command:
+            umount /mnt/science_fiction
+----------------------------------------------
+
+Summary:
+Mount Point: Like a hallway in the library where you connect to a new storage room.
+Mounted File System: The new storage room connected to the library.
+Mounting: Integrating a new storage room into the library system.
+Unmounting: Temporarily disconnecting the storage room from the library system.
+
+
+
+
