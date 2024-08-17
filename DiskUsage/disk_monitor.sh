@@ -16,7 +16,7 @@ fileSystemType=""
 
 while IFS= read -r line
 do
-    if ["$(echo $line | awk '{ $1F }')" == "/dev/sdd"]; then
+    if ["$(echo $line | awk '{ $1F }')" == "/dev/sdd"] then
         echo $line
     fi
     
