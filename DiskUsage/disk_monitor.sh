@@ -22,9 +22,9 @@ while IFS= read -r line
         usage=$(echo "$line" | awk '{ print $6 }' | cut -d % -f 1)
         echo "disk_usage is  $usage"
             if [ "$usage" -ge $threshold ]; then
-                message+="***Alert disk usage on $filesys: is reached maximum threshold: $usage"
+                echo "***Alert disk usage on $filesys: is reached maximum threshold: $usage"
             else
-                message+="Disk usage is: $usage"
+                echo "Disk usage is: $usage"
             fi
 
             echo $message
