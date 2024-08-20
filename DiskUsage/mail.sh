@@ -9,7 +9,8 @@ while IFS= read -r line
 do
     disk_usage_percentage=$($line | awk '{print $6}' | cut -d % -f 1)
     if [ $disk_usage_percentage -ge $threshold ]; then
-    echo "Warning disk usage reached to maxium threshold range: $disk_usage_percentage"
+        echo "Warning disk usage reached to maxium threshold range: $disk_usage_percentage"
+    fi
 done <<< $disk_usage
 
 
