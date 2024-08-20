@@ -8,7 +8,7 @@ To configure Postfix to send emails using Gmail's SMTP server with authenticatio
 If you haven’t already installed Postfix and SASL, do so with the following commands:
 
 Command: sudo apt-get update
-Command: sudo apt-get install postfix libsasl2-2 sasl2-bin libsasl2-modules.
+Command: sudo apt-get install postfix libsasl2-2 sasl2-bin libsasl2-modules
 
 ----------------------------------------------------------------------------------------
 
