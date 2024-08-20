@@ -7,8 +7,8 @@ To configure Postfix to send emails using Gmail's SMTP server with authenticatio
 
 If you haven’t already installed Postfix and SASL, do so with the following commands:
 
-Command: sudo apt-get update
-Command: sudo apt-get install postfix libsasl2-2 sasl2-bin libsasl2-modules
+    Command: sudo apt-get update
+    Command: sudo apt-get install postfix libsasl2-2 sasl2-bin libsasl2-modules
 
 ----------------------------------------------------------------------------------------
 
@@ -17,7 +17,7 @@ Command: sudo apt-get install postfix libsasl2-2 sasl2-bin libsasl2-modules
 
 Edit the Postfix main configuration file (`/etc/postfix/main.cf`) to use Gmail’s SMTP server:
 
-Command: sudo vim /etc/postfix/main.cf
+    Command: sudo vim /etc/postfix/main.cf
 
 Add or modify the following lines to configure Postfix:
 
@@ -62,7 +62,7 @@ Replace `example@gmail.com` with your Gmail address and `your_app_password` with
 
 Set the correct permissions for the password file to ensure it is secure:
 
-sudo chmod 600 /etc/postfix/sasl/passwd
+    Command:sudo chmod 600 /etc/postfix/sasl/passwd
 
 Generate the hash db file that Postfix will use:
 
@@ -73,7 +73,7 @@ Generate the hash db file that Postfix will use:
 
 Restart Postfix to apply the changes:
 
-sudo systemctl restart postfix
+    Command:sudo systemctl restart postfix
 
 ----------------------------------------------------------------------------------------
 
@@ -82,7 +82,7 @@ sudo systemctl restart postfix
 
 To test if your configuration works, try sending an email from the command line:
 
-Command: echo "Test email body" | mail -s "Test email subject" recipient@example.com
+    Command: echo "Test email body" | mail -s "Test email subject" recipient@example.com
 
 Replace `recipient@example.com` with the email address you want to send the test message to.
 

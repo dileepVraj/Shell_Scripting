@@ -10,7 +10,7 @@ do
     disk_usage_percentage=$(echo $line | awk '{print $6}' | cut -d % -f 1)
     if [ $disk_usage_percentage -ge $threshold ]; then
         echo "Sending email: $disk_usage_percentage"
-        echo "Warning disk usage reached to maxium threshold range: $disk_usage_percentage" | mail -s "Disk Usage" ananthvraj50@gmail.com
+        echo "Warning disk usage reached to maxium threshold range: $disk_usage_percentage" | mail -s "Disk Usage" neethuatheli@gmail.com
     fi
 done <<< $disk_usage
 
