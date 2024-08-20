@@ -15,7 +15,7 @@ echo "Printing them with Output Field Seperator"
 
 echo $sentence | awk 'BEGIN { OFS=":" } { print $1,$2,$3 }'
 
-Explaination:
+# Explaination:
     # 'echo $sentence ' piping value of 'sentence' variable to to 'awk'.
     # awk (text processor)
     # 'BEGIN' is a special block that allows us to execute actions before any input lines are processed.
