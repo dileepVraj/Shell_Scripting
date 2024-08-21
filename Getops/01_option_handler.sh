@@ -16,8 +16,17 @@ while getopts ":n:m:h" option; do
     case $option in
         n) Name="$OPTARG";;
         m) Message="$OPTARG";;
-        h|*) Usage; exit;;
+        h) Usage; exit;;
+        :) Usage; exit;;
+        \?) echo "Invalid options: -"$OPTARG"" >&2; Usage; exit;;
     esac
 done
+
+if [ -z "$Name" ] || [ -z "$Message" ]; then
+    echo "Error both -n & -w are mandatory options."
+    Usage;
+    exit 1;
+fi
+
 
 echo " $Message, $Name how are you doing 😊 "
