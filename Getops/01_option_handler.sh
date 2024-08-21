@@ -12,10 +12,10 @@ Usage() {
 
 }
 
-while getopts ":n:w:h" option; do
+while getopts ":n:m:h" option; do
     case $option in
         n) Name="$OPTARG";;
-        w) Message="$OPTARG";;
+        m) Message="$OPTARG";;
         h|*) Usage; exit;;
     esac
 done
