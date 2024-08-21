@@ -166,4 +166,4 @@ cleanUpLogs() {
 }
 
 # createFiles "/home/Log_files" "file_one.txt file_two.log" "20240630"
-cleanUpLogs "/home/Log_files" "+10" "*.log"
+cleanUpLogs "/home/logFiles" "+10" "*.log"
