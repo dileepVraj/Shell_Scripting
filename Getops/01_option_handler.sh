@@ -20,4 +20,4 @@ while getopts ":n:m:h" option; do
     esac
 done
 
-echo " $Message, $Name how are you "
+echo " $Message, $Name how are you doing 😊 "
