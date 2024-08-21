@@ -60,8 +60,10 @@ createFiles() {
 }
 
 # This function takes 3 arguments 1. <path to directory>, 2. time(in days) 3. name(pattern)
+    # Ex: cleanUpLogs "/home/logfiles/" "+14" ".log"
 cleanUpLogs() {
     # This function will delete files or directories in a specified directory based on time and name(pattern).
+
 
     
 
@@ -163,5 +165,5 @@ cleanUpLogs() {
 
 }
 
-createFiles "/home/Log_files" "file_one.txt file_two.log" "20240630"
+# createFiles "/home/Log_files" "file_one.txt file_two.log" "20240630"
 cleanUpLogs "/home/Log_files" "+10" "*.log"
