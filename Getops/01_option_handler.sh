@@ -19,3 +19,5 @@ while getopts ":n:w:h" option; do
         h|*) Usage; exit;;
     esac
 done
+
+echo " $Message, $Name how are you "
