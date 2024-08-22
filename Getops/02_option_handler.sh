@@ -28,7 +28,7 @@ if [ -z "$Name" ] && [ -z "$Message" ]; then
     exit 1;
 elif [ -z "$Name" ]; then
     echo "Error option -n is mandatory."
-    Usaage;
+    Usage;
     exit 1;
 fi
 
