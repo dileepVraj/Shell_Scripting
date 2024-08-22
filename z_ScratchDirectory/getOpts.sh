@@ -4,6 +4,10 @@ dish=""
 spicy=""
 sause=""
 
+usage(){
+    echo " usage function called "
+}
+
 while getopts ":d:s:t:h" opt; do
     case $opt in
     d) dish="$OPTARG";;
