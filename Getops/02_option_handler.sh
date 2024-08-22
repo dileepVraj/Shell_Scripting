@@ -1,7 +1,7 @@
 #!/bin/bash
 
 Name=""
-Message=""
+Message="How are you mate!"
 
 Usage() {
     echo "Usage:: $(basename $0) -n <name> -w <message>"
@@ -22,9 +22,13 @@ while getopts ":n:m:h" option; do
     esac
 done
 
-if [ -z "$Name" ] || [ -z "$Message" ]; then
+if [ -z "$Name" ] && [ -z "$Message" ]; then
     echo "Error both -n & -w are mandatory options."
     Usage;
+    exit 1;
+elif [ -z "$Name" ]; then
+    echo "Error option -n is mandatory."
+    Usaage;
     exit 1;
 fi
 
