@@ -17,5 +17,7 @@ function my_function() {
     echo $global_var
 }
 
+my_function
+
 echo "printing value of global_var outside the my_function"
 echo $global_var
