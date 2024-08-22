@@ -4,7 +4,7 @@ dish=""
 spicy=""
 sause=""
 
-while getopts=":d:s:t:h" opt; do
+while getopts=":d:s:t:h"; opt; do
 case $opt in
 d) $dish="$OPTARG";;
 s) $spicy="$OPTARG";;
