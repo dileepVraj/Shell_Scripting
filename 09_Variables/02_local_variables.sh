@@ -14,7 +14,7 @@
 global_var="I am a global variable"
 
 my_function() {
-    local_var="I am a local variable"
+    local local_var="I am a local variable"
     echo "Inside my_function: $global_var"
     echo "Inside my_function: $local_var"
 }
