@@ -13,7 +13,7 @@ echo $global_var
 
 function my_function() {
     echo "changing the value of global_var to 2"
-    $global_var="Hi I'm global variable my changed value in my_function is: 2"
+    $global_var=="Hi I'm global variable my changed value in my_function is: 2"
     echo $global_var
 }
 
