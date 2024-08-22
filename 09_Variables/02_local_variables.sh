@@ -14,7 +14,7 @@
 global_var="I am a global variable"
 
 my_function() {
-    local local_var="I am a local variable"
+    local_var="I am a local variable"
     echo "Inside my_function: $global_var"
     echo "Inside my_function: $local_var"
 }
@@ -22,4 +22,5 @@ my_function() {
 my_function
 
 # Trying to access local variable of "my_function" outside the function.
-echo "Outside the my_function: $local_var" 
+echo "Outside the my_function: $local_var"  # This wont pirnt any value to console.
+
