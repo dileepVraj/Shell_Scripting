@@ -33,4 +33,4 @@ elif [ -z "$Name" ]; then
 fi
 
 
-echo " $Message, $Name how are you doing 😊 "
+echo " $Name, $Message"
