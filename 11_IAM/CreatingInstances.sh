@@ -26,8 +26,9 @@ do
     fi
 
     # Run an AWS CLI command to launch an EC2 instance with the specified AMI, instance type, and security group.
-    aws ec2 run-instances --image-id $AMI_ID --instance-type $Instance_Type --security-group-ids $Security_Group_ID \
-    --tag-specifications "ResourceType=instance, Tags=[{Key=Name,Value=$i}]"
+    Ip_Address=$(aws ec2 run-instances --image-id $AMI_ID --instance-type $Instance_Type --security-group-ids $Security_Group_ID \
+    --tag-specifications "ResourceType=instance, Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].PrivateIpAddress' --output text)
+    echo $Ip_Address
     # --image-id specifies the AMI to use.
     # --instance-type specifies the type of instance (t2.micro or t3.small).
     # --security-group-ids associates the instance with a security group.
