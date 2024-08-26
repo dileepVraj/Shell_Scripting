@@ -4,8 +4,8 @@ AMI_ID="ami-0b4f379183e5706b9" # Specify the Amazon Machine Image (AMI) ID to be
 Security_Group_ID="sg-0c6b243516a699b3f" # Specify the security group ID to associate with the instance for controlling inbound and outbound traffic.
 
 # Array of instance names for various services.
-Instances_Array=("Mongo_db" "Catalogue" "Redis" "My_SQL" "Rabbit_MQ" "User" "Cart" "Shipping" "Payment" "Dispatch" "Web")
-
+# Instances_Array=("Mongo_db" "Catalogue" "Redis" "My_SQL" "Rabbit_MQ" "User" "Cart" "Shipping" "Payment" "Dispatch" "Web")
+Instances_Array=("Mongo_db" "Web" "Cart")
 # Loop through each service name in the Instances_Array
 for i in "${Instances_Array[@]}"
 do
