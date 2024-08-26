@@ -22,12 +22,70 @@ do
         Instance_Type="t2.micro" # Use t2.micro instance type for other services.
     fi
 
+    
     # Run an AWS CLI command to launch an EC2 instance with the specified AMI, instance type, and security group.
     Ip_Address=$(aws ec2 run-instances --image-id $AMI_ID --instance-type $Instance_Type --security-group-ids $Security_Group_ID \
     --tag-specifications "ResourceType=instance, Tags=[{Key=Name,Value=$i}]" \
     --query 'Instances[0].PrivateIpAddress' --output text)
+
+    if [ $i == "web" ]; then
+        web_ip=$(
+            aws ec2 describe-instances \
+            --filters "Name=tag:Name,Values='$i'" \
+            --query 'Reservations[*].Instances[*].PublicIpAddress' \
+            --output text
+        )
+        echo "web_server IP:$web_ip"
+
+        aws route53 change-resource-record-sets \
+        --hosted-zone-id $Hosted_Zone_ID \
+        --change-batch '
+        {
+            "Comment": "Creating a record set for congnito endpoint"
+            ,"Changes": 
+            [{
+                "Action"    : "CREATE"
+                ,"ResourceRecordSet"    : 
+                {
+                "Name"  : "'$i'.'$Domain_Name'"
+                ,"Type" : "A"
+                ,"TTL"  : 1
+                ,"ResourceRecords"  : 
+                [{
+                    "Value" : "'$web_ip'"
+                }]
+
+                }
+            }]
+        }
+            '
+
+    elif [ "$i" != "Web" ]; then
+    echo "$i server private IP: $Ip_Address" # Print the private IP address of the newly launched instance.
+
+    # Create a DNS record in Route 53 with the private IP address for other instances.
+    aws route53 change-resource-record-sets \
+        --hosted-zone-id $Hosted_Zone_ID \
+        --change-batch '{
+            "Comment": "Creating a record set for instance endpoint",
+            "Changes": [{
+                "Action": "CREATE",
+                "ResourceRecordSet": {
+                    "Name": "'$i'.'$Domain_Name'",
+                    "Type": "A",
+                    "TTL": 60,
+                    "ResourceRecords": [{
+                        "Value": "'$Ip_Address'"
+                    }]
+                }
+            }]
+        }'
+fi
     
-    echo $Ip_Address # Print the private IP address of the newly launched instance.
+
+
+
+    
 
     # --image-id specifies the AMI to use for launching the instance.
     # --instance-type specifies the type of EC2 instance (e.g., t2.micro or t3.small).
@@ -38,27 +96,6 @@ do
 
     #=====================================================================================
 
-    aws route53 change-resource-record-sets \
-    --hosted-zone-id $Hosted_Zone_ID \
-    --change-batch '
-    {
-        "Comment": "Creating a record set for congnito endpoint"
-        ,"Changes": 
-        [{
-            "Action"    : "CREATE"
-            ,"ResourceRecordSet"    : 
-            {
-            "Name"  : "'$i'.'$Domain_Name'"
-            ,"Type" : "A"
-            ,"TTL"  : 1
-            ,"ResourceRecords"  : 
-            [{
-                "Value" : "'$Ip_Address'"
-            }]
-
-            }
-        }]
-    }
-        '
+    
     
 done
