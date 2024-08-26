@@ -28,7 +28,7 @@ do
     --tag-specifications "ResourceType=instance, Tags=[{Key=Name,Value=$i}]" \
     --query 'Instances[0].PrivateIpAddress' --output text)
 
-    if [ $i == "web" ]; then
+    if [ $i == "Web" ]; then
         web_ip=$(
             aws ec2 describe-instances \
             --filters "Name=tag:Name,Values='$i'" \
@@ -80,7 +80,7 @@ do
                 }
             }]
         }'
-fi
+    fi
     
 
 
