@@ -7,6 +7,9 @@ Security_Group_ID="sg-0c6b243516a699b3f" # Specify the security group ID to asso
 # Instances_Array=("Mongo_db" "Catalogue" "Redis" "My_SQL" "Rabbit_MQ" "User" "Cart" "Shipping" "Payment" "Dispatch" "Web")
 Instances_Array=("Mongo_db" "Web" "Cart")
 Domain_Name="devopsraja4523.online"
+Hosted_Zone_ID="Z0143914ZQS136BBMPZ8"
+
+
 # Loop through each service name in the Instances_Array
 for i in "${Instances_Array[@]}"
 do
