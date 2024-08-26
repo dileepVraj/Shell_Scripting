@@ -28,6 +28,17 @@ do
     --tag-specifications "ResourceType=instance, Tags=[{Key=Name,Value=$i}]" \
     --query 'Instances[0].PrivateIpAddress' --output text)
 
+    # --image-id specifies the AMI to use for launching the instance.
+    # --instance-type specifies the type of EC2 instance (e.g., t2.micro or t3.small).
+    # --security-group-ids associates the instance with a specific security group to manage traffic.
+    # --tag-specifications allows you to tag the instance with key-value pairs (e.g., setting the instance's name).
+    # --query 'Instances[0].PrivateIpAddress' extracts the private IP address of the first instance from the result.
+    # --output text formats the output of the --query option as plain text for easy readability.
+
+    # Wait for the instance to be running
+    echo "Waiting for instance $Instance_Id to be running..."
+    aws ec2 wait instance-running --instance-ids $Instance_Id
+
     if [ $i == "Web" ]; then
         web_ip=$(
             aws ec2 describe-instances \
@@ -84,17 +95,14 @@ do
     
 
 
+# Note this script can be improved by checking do dns records which are specified to create are exist or not if yes first
+#.. delete those records and then create new records.
+
 
     
 
-    # --image-id specifies the AMI to use for launching the instance.
-    # --instance-type specifies the type of EC2 instance (e.g., t2.micro or t3.small).
-    # --security-group-ids associates the instance with a specific security group to manage traffic.
-    # --tag-specifications allows you to tag the instance with key-value pairs (e.g., setting the instance's name).
-    # --query 'Instances[0].PrivateIpAddress' extracts the private IP address of the first instance from the result.
-    # --output text formats the output of the --query option as plain text for easy readability.
+    
 
-    #=====================================================================================
 
     
     
