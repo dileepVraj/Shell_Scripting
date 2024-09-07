@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# in this script we predefine some placeholders or variables in echo statements and we use arguments to pass values
+# In this script we predefine some placeholders or variables in echo statements and we use arguments to pass values
 # while executing the script file.
 
 FIRST_NAME=$1

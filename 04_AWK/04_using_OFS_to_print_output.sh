@@ -4,7 +4,7 @@
 #..exact number of fields the string has.
 
 echo "enter a sentence"
-read sentence
+read -r sentence
 
 # Explaination: printing number of fields count using substitution.
 echo "Number of fields in user specified sentence are:" $(echo $sentence | awk '{print NF}')

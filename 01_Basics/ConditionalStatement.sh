@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # If we want to make a descion or execute a code snippet based on conditions or some validations then we should use
-# conditional statements in any programming language.
+# ...conditional statements in any programming language.
 
 # General conditional statement syntax
 

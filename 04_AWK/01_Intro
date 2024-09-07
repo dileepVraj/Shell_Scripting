@@ -5,3 +5,15 @@ It's named after its creators, Alfred Aho, Peter Weinberger, and Brian Kernighan
 AWK is used for pattern scanning and processing, making it especially useful for handling text files, 
 extracting data, and transforming text.
 
+What is pattern scanning:
+
+Pattern scanning in general refers to the process of searching through data (such as text, logs, or a file) to find specific patterns or sequences of characters that match predefined rules or conditions.
+
+In the context of AWK:
+AWK is a powerful text-processing tool in Unix/Linux used for pattern scanning and processing. It works by scanning each line of input data and applying patterns or conditions that you define. If a pattern matches, AWK performs an associated action, like printing the line or manipulating it in some way.
+
+Ex: awk '/error/ {print}' log.txt
+
+* Pattern: /error/ (this is a regular expression looking for the word "error").
+* Action: {print} (this prints the line when the pattern is matched).
+

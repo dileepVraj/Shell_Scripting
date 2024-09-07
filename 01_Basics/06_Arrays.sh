@@ -4,7 +4,7 @@
 
 # we should retrive data from array based on index number of the value stored.
 
-# Index in arry of shell script is started with 0.
+# Index in array of shell script will start with 0.
 
 # here we go....
 

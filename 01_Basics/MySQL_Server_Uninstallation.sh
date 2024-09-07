@@ -23,7 +23,7 @@ un_install_mysql() {
     if [ "$RESPONSE" == "y" ]
     then
         echo " mysql un-installation started "
-        # The --purge option removes the package along with its configuration fils.
+        # The --purge option removes the package along with its configuration files.
         sudo apt-get remove --purge mysql-server -y
         # Removes any dependencies that were installed with mysql server which no longer needed.
         sudo apt-get autoremove -y

@@ -9,7 +9,7 @@
 # By logging developers can keep track of execution flow and see where it deviates from the
 # expected  behavior.
 
-# Monigoring: 
+# Monitoring: 
 # Logs can include timing information to help monitor performance and identify bottelnecks.
 
 # Resource usage: 
@@ -18,14 +18,14 @@
 
 # Audit trail:
 # Logs can track who executed the script and what changes were made, which is crucial for 
-# security audits.
+# ...security audits.
 
 # Best practices for logging:
 
 # Log levels: Use different log levels (e.g DEBUG, INFO, WARN, ERROR)to categorize log messages.
 
 # Log format: Ensure logs are in consistent and readable format.
-# Log rotation: Implement log rotation to manage log file sizes and avoid disk spaces issues.
+# Log rotation: Implement log rotation to manage log file sizes and avoid disk space issues.
 # Secure logs: Ensure logs are stored securely to prevent unauthorized access, especially if they
 # contains sensitive information.
 
@@ -52,7 +52,7 @@ log() {
     # Above command will prints the date in format of 'yyyy','mm','dd' 'hh','mm'and'ss' format.
     # then $1 -> what ever argument we are passing to the function will be append to the log file.
     # '|' -> this pipe symbol is used to pass output of one command as input to another command.
-    # 'tee'-> The tee command reads from standard input and writes to both standard output and one or more files.
+    # 'tee'-> The tee command reads from standard input and writes to both standard output to one or more files.
     # This means it will display output on the console and also writes to the file.
     # 'a'-> The -a option stands for 'append'. When used with 'tee' it tells the 'tee' to
     # append the output to the file rather than overwriting the file. This ensures that each log entry is added 
